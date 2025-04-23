@@ -77,6 +77,9 @@ dependencies {
     // --- OkHttp Logging (Optional but recommended for debugging) ---
     implementation(libs.okhttp.logging)
 
+    //constraint Layout for compose
+    implementation(libs.androidx.constraintlayout.compose)
+
     testImplementation(libs.room.testing)
 
 }
