@@ -1,4 +1,4 @@
-package com.example.taskpal
+package com.example.taskpal.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

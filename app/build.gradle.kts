@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.devtools.ksp)
+    alias(libs.plugins.hilt) // Apply Hilt
 }
 
 android {
@@ -28,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_19
+        targetCompatibility = JavaVersion.VERSION_19
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "19"
     }
     buildFeatures {
         compose = true
@@ -56,4 +58,28 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // room db
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.room.paging)
+    ksp(libs.room.compiler)
+
+
+    // --- Dagger Hilt ---
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    // --- Retrofit ---
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.converter.gson)
+
+    // --- OkHttp Logging (Optional but recommended for debugging) ---
+    implementation(libs.okhttp.logging)
+
+    //constraint Layout for compose
+    implementation(libs.androidx.constraintlayout.compose)
+
+    testImplementation(libs.room.testing)
+
 }
