@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.google.devtools.ksp)
+    alias(libs.plugins.google.devtools.kapt)
     alias(libs.plugins.hilt) // Apply Hilt
 }
 
@@ -63,12 +63,12 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     implementation(libs.room.paging)
-    ksp(libs.room.compiler)
+    kapt(libs.room.compiler)
 
 
     // --- Dagger Hilt ---
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 
     // --- Retrofit ---
     implementation(libs.retrofit.core)
@@ -82,4 +82,8 @@ dependencies {
 
     testImplementation(libs.room.testing)
 
+}
+
+kapt {
+    correctErrorTypes= true
 }
